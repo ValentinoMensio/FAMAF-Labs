@@ -1,0 +1,4 @@
+Nombre:                 Mail:
+Valentino Mensio        valentino.mensio@mi.unc.edu.ar
+Geremias Baudino        geremiasbaudino@mi.unc.edu.ar
+Tomas Ordoñez           tomas.ordonez@mi.unc.edu.ar
