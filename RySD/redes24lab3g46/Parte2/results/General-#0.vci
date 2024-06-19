@@ -1,0 +1,55 @@
+file 187348 1716011830                                          
+version 3
+run General-0-20240518-02:57:05-79078
+attr configname General
+attr datetime 20240518-02:57:05
+attr datetimef 20240518-025705
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Network
+attr processid 79078
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network Network
+config sim-time-limit 200s
+config Network.nodeTx.gen.generationInterval exponential(0.15)
+config Network.nodeTx.gen.packetByteSize 12500
+config Network.nodeTx.TrTx.bufferSize 200000
+config Network.nodeTx.TrTx.serviceTime exponential(0.1)
+config Network.nodeRx.TrRx.bufferSize 200
+config Network.nodeRx.TrRx.serviceTime exponential(0.1)
+config Network.queue_1.bufferSize 200
+config Network.queue_1.serviceTime exponential(0.1)
+config Network.queue_2.bufferSize 200
+config Network.queue_2.serviceTime exponential(0.1)
+
+vector 0 Network.nodeTx.TrTx Queue_PacketDrop ETV
+vector 1 Network.queue_1 packetDrop ETV
+vector 2 Network.queue_2 packetDrop ETV
+vector 3 Network.nodeRx.TrRx Queue_PacketDrop ETV
+vector 4 Network.nodeTx.gen generatedPackets ETV
+vector 5 Network.nodeTx.TrTx Queue_BufferSize ETV
+vector 6 Network.queue_1 bufferSize ETV
+vector 7 Network.nodeRx.TrRx Queue_BufferSize ETV
+vector 8 Network.nodeRx.sink Delay ETV
+vector 9 Network.nodeRx.sink receivedPackets ETV
+vector 10 Network.queue_2 bufferSize ETV
+0	1445 8 0 0 0 0 1 0 0 0 0
+1	1453 8 0 0 0 0 1 0 0 0 0
+2	1461 8 0 0 0 0 1 0 0 0 0
+3	1469 8 0 0 0 0 1 0 0 0 0
+4	1477 35822 1 10158 0.119381175685 199.38574018861 1307 1 1307 854778 745081490
+5	37299 33949 2 10159 0.119381175685 199.38574018861 1307 1 314 91016 18876928
+6	71248 24955 5 10174 0.219481175685 199.988180000909 995 1 1 995 995
+7	96203 26277 12 10169 0.319581175685 199.738280120118 994 1 186 88234 10625910
+8	122480 37825 22 10172 0.519581175685 199.938280120118 994 0.4002 49.362494973338 24353.823060026 805025.20921913
+9	160305 26127 22 10172 0.519581175685 199.938280120118 994 1 994 494515 327863445
+10	186432 915 6534 6983 107.131375130819 113.648409435996 34 1 1 34 34
+

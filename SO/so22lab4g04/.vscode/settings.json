@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "libgen.h": "c",
+        "big_brother.h": "c",
+        "fat_table.h": "c"
+    }
+}

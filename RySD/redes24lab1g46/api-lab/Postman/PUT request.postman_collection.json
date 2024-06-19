@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "cc4889fe-2ad4-42a4-bdef-b0a941056f6d",
+		"name": "PUT request",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33831862"
+	},
+	"item": [
+		{
+			"name": "Actualizar Pelicula",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response contains id, genero, and titulo properties\", function () {",
+							"    var responseData = pm.response.json();",
+							"    pm.expect(responseData.id).to.exist;",
+							"    pm.expect(responseData.titulo).to.equal('Nuevo titulo');",
+							"    pm.expect(responseData.genero).to.equal('Nuevo genero');",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Nuevo titulo\",\n    \"genero\": \"Nuevo genero\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/peliculas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

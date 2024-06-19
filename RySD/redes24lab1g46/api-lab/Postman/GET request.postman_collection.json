@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "d6ff7c9b-590d-417b-a781-3fd012092789",
+		"name": "GET request",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33831862"
+	},
+	"item": [
+		{
+			"name": "Peliculas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Fixed syntax ",
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"La respuesta contiene 12 peliculas\", function () {",
+							"   var responseData = pm.response.json();",
+							"   pm.expect(responseData.length).to.eql(12);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/peliculas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peliculas ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - genero, id, and titulo\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.genero).to.exist;",
+							"    pm.expect(responseData.titulo).to.exist;",
+							"    pm.expect(responseData.id).to.equal(1);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/peliculas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pelicula Genero",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - genero, id, and titulo\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('array');",
+							"    responseData.forEach(function(item) {",
+							"        pm.expect(item.genero).to.equal('Acción');",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/peliculas/genero/acción",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas",
+						"genero",
+						"acción"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pelicula Nombre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - genero, id, and titulo\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('array');",
+							"    responseData.forEach(function(item) {",
+							"        pm.expect(item.titulo).to.match(/The/i);",
+							"    });",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/peliculas/nombre/The",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas",
+						"nombre",
+						"The"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pelicula Random",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - genero, id, and titulo\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.genero).to.exist;",
+							"    pm.expect(responseData.id).to.exist;",
+							"    pm.expect(responseData.titulo).to.exist;",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/peliculas/random",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas",
+						"random"
+					]
+				},
+				"description": "\nThis endpoint makes an HTTP GET request to retrieve a random movie from the server. The response will be in JSON format and will include the genre, ID, and title of the movie. If the response status is 200, the content will be as follows:\n\n- `genero`: The genre of the random movie.\n- `id`: The unique identifier of the random movie.\n- `titulo`: The title of the random movie.\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Pelicula Random Genero",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.to.have.status(200));",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - genero, id, and titulo\", function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData.genero).to.equal('Acción');",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/peliculas/random/genero/acción",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas",
+						"random",
+						"genero",
+						"acción"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pelicula Feriado Genero",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.to.have.status(200));",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - genero, id, and titulo\", function () {",
+							"    var responseData = pm.response.json();",
+							"    pm.expect(responseData.pelicula_recomendada.genero).to.equal('Acción');",
+							"});",
+							"",
+							"",
+							"pm.test(\"El feriado no es nulo\", function () {",
+							"    var responseData = pm.response.json();",
+							"    pm.expect(responseData.feriado).to.not.be.null;",
+							"",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/peliculas/feriado/genero/Acción",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas",
+						"feriado",
+						"genero",
+						"Acción"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
